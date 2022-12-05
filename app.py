@@ -18,19 +18,13 @@ st.code(code, language='python')
 st.subheader('Description of PD code')
 
 df = pd.read_csv('data/NYPD_Arrest_Data__Year_to_Date_.csv')
-
 pd_code = df['PD_DESC'].value_counts()
-pd_code
-
+st.bar_chart(pd_code)
 st.caption("This is a summary of the descrption of arrests")
-st.write(df)
 
-hist_values = np.histogram(
-    df['value'], bins=24, range=(0,24))[0]
-st.bar_chart(hist_values)
+
 
 st.subheader('Arrests in 2022')
-
-arrest_day = df['ARREST_DATE'].value_counts()
-
+arrest_day = df['ARREST_DATE']
 st.line_chart(arrest_day)
+st.caption(" A representation of the arrest dates in 2022 ")
